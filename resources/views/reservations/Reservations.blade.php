@@ -1,7 +1,7 @@
-@extends('layouts')
+@extends('layout')
 
 @section('content')
     <!-- Your specific page content goes here -->
-    <h1>Welcome to our Home Page</h1>
+    <h1>Welcome to Reservations</h1>
 
 @endsection

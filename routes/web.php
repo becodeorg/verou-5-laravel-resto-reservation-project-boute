@@ -15,12 +15,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/layouts', function () {
-    return view('layouts');
+Route::get('/layout', function () {
+    return view('layout');
 });
+
+Route::get('/partials/header', function () {
+    return view('partials.header');
+});
+
+Route::get('reservations/Reservations', function () {
+    return view('reservations.Reservations');
+})->name('Reservations');
+
+Route::get('reservations/MakeReservations', function () {
+    return view('reservations.MakeReservations');
+})->name('MakeReservations');
+
+Route::get('/Menu', function () {
+    return view('Menu');
+})->name("Menu");
