@@ -9,12 +9,21 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="flex flex-col items-center justify-between min-h-screen">
 
+    <!-- Header -->
     @include('_partials.header')
-    @yield('content')
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Your main content goes here -->
+        @yield('content')
+    </main>
+
+    <!-- Footer -->
     @include('_partials.footer')
 
 </body>
 
 </html>
+
