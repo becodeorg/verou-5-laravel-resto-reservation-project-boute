@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,9 +30,7 @@ Route::get('/partials/header', function () {
     return view('partials.header');
 });
 
-Route::get('reservations/Reservations', function () {
-    return view('reservations.Reservations');
-})->name('Reservations');
+Route::get('/all_reservations', [ReservationController::class, 'index'])->name("showAllReservations");
 
 Route::get('reservations/MakeReservations', function () {
     return view('reservations.MakeReservations');

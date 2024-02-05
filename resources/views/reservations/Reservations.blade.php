@@ -3,12 +3,6 @@
 Reservations
 @endsection
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation Details</title>
         <style>
             /* Add your CSS styles here */
             /* This is just basic styling, you can customize it further */
@@ -47,22 +41,26 @@ Reservations
                 margin: 5px 0;
             }
         </style>
-    </head>
     <body>
-        <div class="container">
-            <h2>Reservation Details</h2>
+        
             
-            <!-- Loop through each reservation using Blade syntax -->
-            {{-- @foreach ($reservations as $reservation)
-                <div class="reservation">
-                    <h3>Reservation #{{ $reservation->id }}</h3>
-                    <p><strong>Name:</strong> {{ $reservation->first_name }} {{ $reservation->last_name }}</p>
+            
+            @foreach ($reservations as $reservation)
+            <div class="container">
+                <div class="reservations">
+                    <strong>Reservation number:</strong> {{ $reservation->id }}</a>
+                    <p><strong>First name:</strong> {{ $reservation->first_name }}</p>
+                    <p><strong>Last name:</strong> {{ $reservation->last_name }}</p>
                     <p><strong>Email:</strong> {{ $reservation->email }}</p>
-                    <p><strong>Number of People:</strong> {{ $reservation->number_of_people }}</p>
-                    <p><strong>Meal Choice:</strong> {{ $reservation->meal_choice }}</p>
+                    <p><strong>Number of guests:</strong> {{ $reservation->number_of_guests }}</p>
+                    <p><strong>Date of Reservation:</strong> {{ $reservation->time }}</p>
+                    <button>Details</button>
+                    <br>
+                    <br>
                 </div>
-                @endforeach --}}
-        </div>
+            </div>
+            @endforeach
+        
     </body>
     </html>
     
