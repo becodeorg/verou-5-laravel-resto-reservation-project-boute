@@ -1,9 +1,7 @@
-@extends('layout')
-
-@section('title')
-    HOME
-@endsection
+@extends('layouts')
 
 @section('content')
-    <h1 class="text-6xl text-red-900">Hello world!</h1>
+    <!-- Your specific page content goes here -->
+    <h1>Welcome to Welcome</h1>
+
 @endsection
