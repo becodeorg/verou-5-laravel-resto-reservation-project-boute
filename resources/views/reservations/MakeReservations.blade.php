@@ -4,7 +4,7 @@
 @include('_partials.header')
 
 @section('title')
-Sign Up
+Make new reservation
 @endsection
 
 @section('content')

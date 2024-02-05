@@ -39,3 +39,7 @@ Route::get('reservations/MakeReservations', function () {
 Route::get('/Menu', function () {
     return view('Menu');
 })->name("Menu");
+
+Route::get('/Admin', function () {
+    return view('admin/index');
+})->name("showAdminLogin");
