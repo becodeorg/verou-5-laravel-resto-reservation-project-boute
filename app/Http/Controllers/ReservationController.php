@@ -25,7 +25,15 @@ class ReservationController extends Controller
             'number_of_people' => ['required', 'numeric', 'between:1,8']
         ]);
 
-        Reservation::create($request->all());
+        $reservation = new Reservation();
+        $reservation->first_name = $request->first_name;
+        $reservation->last_name = $request->last_name;
+        $reservation->email = $request->email;
+        $reservation->number_of_guests = $request->number_of_guests;
+        $reservation->time = new \DateTime(now());
+        $$reservation->save();
+
+        //    Reservation::create($request->all());
 
         return redirect('/')->with('success', 'Reservation created successfully');
     }

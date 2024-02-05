@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->dateTime('time');
             $table->integer('number_of_guests');
-            $table->rememberToken();
+            //    $table->rememberToken();
             $table->timestamps();
         });
     }

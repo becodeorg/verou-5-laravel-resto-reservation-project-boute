@@ -1,10 +1,7 @@
 @extends('layout')
 
-@section('content')
-    @include('_partials.header')
-
 @section('title')
-Make new reservation
+    Make new reservation
 @endsection
 
 @section('content')
@@ -14,7 +11,7 @@ Make new reservation
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="#" method="POST">
+            <form class="space-y-6" action="{{ route('reservation-store') }}" method="POST">
                 @csrf
                 <div>
                     <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First Name</label>
@@ -57,8 +54,4 @@ Make new reservation
             </form>
         </div>
     </div>
-@endsection
-
-@include('_partials.footer')
-<h1>Welcome, Lets make a reservations!</h1>
 @endsection

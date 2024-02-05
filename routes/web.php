@@ -22,14 +22,6 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/layout', function () {
-    return view('layout');
-});
-
-Route::get('/partials/header', function () {
-    return view('partials.header');
-});
-
 Route::get('/all_reservations', [ReservationController::class, 'index'])->name("showAllReservations");
 
 Route::get('reservations/MakeReservations', function () {
@@ -43,3 +35,5 @@ Route::get('/Menu', function () {
 Route::get('/Admin', function () {
     return view('admin/index');
 })->name("showAdminLogin");
+
+Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
