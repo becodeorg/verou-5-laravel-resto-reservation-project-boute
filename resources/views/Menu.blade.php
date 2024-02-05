@@ -2,7 +2,119 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto px-4 py-8">
-    @csrf
+  <h2 class="text-3xl font-bold mb-6 text-gray-900">Drinks Menu</h2>
+  <!-- Soft Drinks -->
+<div class="mb-8">
+  <h3 class="text-xl font-semibold mb-4 text-gray-900">Soft Drinks</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Soft Drink 1 -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Soft Drink 1" class="w-full h-48 object-cover">
+          <div class="p-4">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900">Coca-Cola</h4>
+              <p class="text-gray-700">Refreshing cola soda served chilled with ice.</p>
+              <p class="text-gray-700 mt-2 font-bold">$2.99</p>
+          </div>
+      </div>
+
+      <!-- Soft Drink 2 -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Soft Drink 2" class="w-full h-48 object-cover">
+          <div class="p-4">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900">Sprite</h4>
+              <p class="text-gray-700">Lemon-lime flavored carbonated beverage, perfect for a refreshing drink.</p>
+              <p class="text-gray-700 mt-2 font-bold">$2.99</p>
+          </div>
+      </div>
+
+      <!-- Add more soft drinks here if needed -->
+  </div>
+</div>
+
+<!-- Beers -->
+<div class="mb-8">
+  <h3 class="text-xl font-semibold mb-4 text-gray-900">Beers</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Beer 1 -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Beer 1" class="w-full h-48 object-cover">
+          <div class="p-4">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900">Stella Artois</h4>
+              <p class="text-gray-700">Belgian pilsner beer known for its crisp, clean taste and golden color.</p>
+              <p class="text-gray-700 mt-2 font-bold">$5.99</p>
+          </div>
+      </div>
+
+      <!-- Beer 2 -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Beer 2" class="w-full h-48 object-cover">
+          <div class="p-4">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900">Guinness</h4>
+              <p class="text-gray-700">Irish dry stout with a creamy head, characterized by its rich, roasted flavor.</p>
+              <p class="text-gray-700 mt-2 font-bold">$6.99</p>
+          </div>
+      </div>
+
+      <!-- Add more beers here if needed -->
+  </div>
+</div>
+
+<!-- Warm Drinks -->
+<div class="mb-8">
+  <h3 class="text-xl font-semibold mb-4 text-gray-900">Warm Drinks</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Warm Drink 1 -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Warm Drink 1" class="w-full h-48 object-cover">
+          <div class="p-4">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900">Hot Chocolate</h4>
+              <p class="text-gray-700">Rich and creamy chocolate drink served hot with marshmallows.</p>
+              <p class="text-gray-700 mt-2 font-bold">$4.99</p>
+          </div>
+      </div>
+
+      <!-- Warm Drink 2 -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Warm Drink 2" class="w-full h-48 object-cover">
+          <div class="p-4">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900">Chai Latte</h4>
+              <p class="text-gray-700">Spiced tea with milk, honey, and a blend of aromatic spices, served hot.</p>
+              <p class="text-gray-700 mt-2 font-bold">$4.99</p>
+          </div>
+      </div>
+
+      <!-- Add more warm drinks here if needed -->
+  </div>
+</div>
+
+<!-- Cocktails -->
+<div class="mb-8">
+  <h3 class="text-xl font-semibold mb-4 text-gray-900">Cocktails</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Cocktail 1 -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Cocktail 1" class="w-full h-48 object-cover">
+          <div class="p-4">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900">Margarita</h4>
+              <p class="text-gray-700">A classic cocktail made with tequila, triple sec, and lime juice, served with salt on the rim.</p>
+              <p class="text-gray-700 mt-2 font-bold">$8.99</p>
+          </div>
+      </div>
+
+      <!-- Cocktail 2 -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/300" alt="Cocktail 2" class="w-full h-48 object-cover">
+          <div class="p-4">
+              <h4 class="text-lg font-semibold mb-2 text-gray-900">Cosmopolitan</h4>
+              <p class="text-gray-700">A sophisticated cocktail made with vodka, cranberry juice, triple sec, and lime juice.</p>
+              <p class="text-gray-700 mt-2 font-bold">$9.99</p>
+          </div>
+      </div>
+
+      <!-- Add more cocktails here if needed -->
+  </div>
+</div>
+
     <h2 class="text-3xl font-bold mb-6 text-gray-900">Sushi Menu</h2>
   
     <!-- Sushi Rolls -->
