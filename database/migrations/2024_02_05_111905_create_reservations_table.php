@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->time('reservation_time');
-            $table->timestamp('email_verified_at')->nullable();
+            $table->dateTime('time');
             $table->integer('number_of_guests');
             $table->rememberToken();
             $table->timestamps();
