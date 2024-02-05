@@ -1,7 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <!-- Your specific page content goes here -->
+<main class="w-screen flex flex-col justify-center items-center h-screen">
     <h1>Welcome to our Menu, enjoy!!</h1>
+</main>
 
 @endsection
