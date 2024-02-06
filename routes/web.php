@@ -38,5 +38,6 @@ Route::get('/Admin', function () {
 Route::post('/admin/index', [UserController::class, 'login'])->name("loginUser");
 
 Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
+Route::post('/reservation/MakeReservation', [ReservationController::class, 'store']);
 
 Route::post('/logout', [UserController::class, 'logout'])->name("logout");
