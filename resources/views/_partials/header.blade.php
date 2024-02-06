@@ -5,6 +5,8 @@
                 <li><a href="{{ route("showAllReservations") }}">Reservations</a></li>
                 <li><a href="{{ route("MakeReservations") }}">Make Reservation</a></li>
                 <li><a href="{{ route("Menu") }}">Menu</a></li>
+                <hr>
+                <hr>
                 <li><a href="{{ route("showAdminLogin") }}">Admin</a></li>
             </ul>
         </nav>
