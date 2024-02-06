@@ -22,7 +22,7 @@ class ReservationController extends Controller
             'first_name' => ['required', 'max:255'],
             'last_name' => ['required', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
-            'number_of_people' => ['required', 'numeric', 'between:1,8']
+            'number_of_guests' => ['required', 'numeric', 'between:1,8']
         ]);
 
         $reservation = new Reservation();
@@ -31,7 +31,7 @@ class ReservationController extends Controller
         $reservation->email = $request->email;
         $reservation->number_of_guests = $request->number_of_guests;
         $reservation->time = new \DateTime(now());
-        $$reservation->save();
+        $reservation->save();
 
         //    Reservation::create($request->all());
 
