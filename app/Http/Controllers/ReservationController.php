@@ -37,4 +37,13 @@ class ReservationController extends Controller
 
         return redirect('/')->with('success', 'Reservation created successfully');
     }
+
+    public function destroy($id)
+    {
+        $reservation = Reservation::find($id);
+        $reservation->delete();
+
+        return redirect('/')->with('success', 'Reservation deleted successfully');
+    }
+
 }

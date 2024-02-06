@@ -22,6 +22,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/all_reservations', [ReservationController::class, 'index'])->name("showAllReservations");
+Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservationDestroy');
 Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
 
 Route::get('reservations/MakeReservations', function () {
