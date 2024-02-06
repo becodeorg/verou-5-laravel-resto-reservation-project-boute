@@ -11,7 +11,7 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::all();
 
-        return view("reservations/Reservations", [
+        return view("reservations.Reservations", [
             "reservations" => $reservation,
         ]);
     }
@@ -48,4 +48,11 @@ class ReservationController extends Controller
         return redirect('/')->with('success', 'Reservation deleted successfully');
     }
 
+    public function showForm(Request $request)
+    {
+        $date = $request->query('date');
+        // Additional logic if needed
+
+        return view('reservations.MakeReservations', ['date' => $date]);
+    }
 }

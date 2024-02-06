@@ -52,6 +52,12 @@
                         Reservation</button>
                 </div>
             </form>
+
+            @if(isset($date))
+                <h1 class="text-center text-2xl mt-6 font-bold leading-9 tracking-tight text-gray-900">
+                    Reservation for {{ $date }}
+                </h1>
+            @endif
         </div>
     </div>
 @endsection
