@@ -22,6 +22,7 @@ class UserController extends Controller
         }
         return back();
     }
+
     public function logout(Request $request)
     {
     Auth::logout();
@@ -31,5 +32,10 @@ class UserController extends Controller
     $request->session()->regenerateToken();
  
     return redirect('/');
+    }
+
+    public function show ()
+    {
+        return view ("admin/admin_info");
     }
 }

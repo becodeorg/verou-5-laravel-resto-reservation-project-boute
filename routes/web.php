@@ -22,10 +22,11 @@ Route::get('/home', function () {
 });
 
 Route::get('/all_reservations', [ReservationController::class, 'index'])->name("showAllReservations");
+Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
 
 Route::get('reservations/MakeReservations', function () {
     return view('reservations.MakeReservations');
-})->name('MakeReservations');
+    })->name('MakeReservations');
 
 Route::get('/Menu', function () {
     return view('Menu');
@@ -35,8 +36,7 @@ Route::get('/Admin', function () {
     return view('admin/index');
 })->name("showAdminLogin");
 
+
+Route::get('/admin/admin_info', [UserController::class, 'show'])->name("showAdminInfo")->middleware('auth');
 Route::post('/admin/index', [UserController::class, 'login'])->name("loginUser");
-
-Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
-
 Route::post('/logout', [UserController::class, 'logout'])->name("logout");

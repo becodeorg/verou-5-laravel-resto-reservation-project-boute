@@ -16,6 +16,7 @@
                 @endguest
                 @auth
                     <li><form action="{{ route("logout") }}"method="POST">@csrf<button>Logout</button></form></li>
+                    <li><a href="{{ route("showAdminInfo") }}">Admin info</a></li>
                 @endauth
                 
             </ul>
