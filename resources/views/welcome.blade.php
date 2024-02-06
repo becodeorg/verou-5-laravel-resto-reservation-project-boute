@@ -4,28 +4,19 @@
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'timeGridWeek', // weekly view
                 slotMinTime: '8:00:00', // slot max time and min time
                 slotMaxTime: '19:00:00',
                 events: <?php echo json_encode($events); ?>,
                 dateClick: function (info) {
                     // Handle Date click event (e.g)
+                    const selectedDate = info.dateStr;
                     console.log('Clicked on: ' + info.dateStr);
                     // Add logic to handle reservation here 
-                    $.ajax({
-                        url: '/reservations/MakeReservations', // Update with correct URL
-                        method: 'POST',
-                        data: { date: info.dateStr /*, Other reservation days */ },
-                        success: function (response) {
-                            console.log('Reservation created successfully');
-                            // Update calendar or perform other actions
-                        },
-                        error: function (error) {
-                            console.error('Error creating reservations', error);
-                        },
-                    });
+                    // Redirect to the reservation form with the selected date
+                    window.location.href = '/reservations/MakeReservations?date=' + selectedDate;
                 }
             });
             calendar.render();
