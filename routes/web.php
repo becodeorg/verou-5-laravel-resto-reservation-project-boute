@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,4 +35,8 @@ Route::get('/Admin', function () {
     return view('admin/index');
 })->name("showAdminLogin");
 
+Route::post('/admin/index', [UserController::class, 'login'])->name("loginUser");
+
 Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
+
+Route::post('/logout', [UserController::class, 'logout'])->name("logout");
