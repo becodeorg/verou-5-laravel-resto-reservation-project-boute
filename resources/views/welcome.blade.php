@@ -12,6 +12,8 @@
                 events: <?php echo json_encode($events); ?>,
                 dateClick: function (info) {
                     // Handle Date click event (e.g)
+                    console.log('Clicked on: ' + info.dateStr)
+                    // Add logic to handle reservation here 
                 }
             });
             calendar.render();
