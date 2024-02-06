@@ -12,18 +12,15 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // Define an array of specific dates for the next two weeks
         $specificDates = [
             '2024-02-06',
             '2024-02-07',
             '2024-02-08',
-            // Add more dates as needed
+     
         ];
 
-        // Create an array to store events
         $events = [];
 
-        // Generate events for the specific dates
         foreach ($specificDates as $date) {
             // Add an event for each day
             $events[] = [
@@ -33,10 +30,8 @@ class HomeController extends Controller
             ];
         }
 
-        // Get appointments from the database
         $appointments = Appointment::with(['client', 'employee'])->get();
 
-        // Add database appointments to the events array
         foreach ($appointments as $appointment) {
             $events[] = [
                 'title' => $appointment->client->name . ' ('.$appointment->employee->name.')',
