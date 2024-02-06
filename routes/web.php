@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,6 @@ Route::get('/Admin', function () {
 Route::get('/admin/admin_info', [UserController::class, 'show'])->name("showAdminInfo")->middleware('auth');
 Route::post('/admin/index', [UserController::class, 'login'])->name("loginUser");
 Route::post('/logout', [UserController::class, 'logout'])->name("logout");
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard/{date}', [DashboardController::class, 'showDate'])->name('dashboardShowDate');
