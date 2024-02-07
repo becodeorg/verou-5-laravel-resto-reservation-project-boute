@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Controllers\HomeController::class)->name('home'); 
+Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
 Route::get('/home', function () {
     return view('home');
@@ -32,18 +32,11 @@ Route::put('/reservations/{id}', [ReservationController::class, 'update'])->name
 
 Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
 
-Route::get('/reservations/MakeReservations', [ReservationController::class, 'showForm']);
-
-
-Route::get('reservations/MakeReservations', function () {
-    return view('reservations.MakeReservations');
-    })->name('MakeReservations');
-
+Route::get('/reservations/MakeReservations', [ReservationController::class, 'showForm'])->name('MakeReservations');
 
 Route::get('/Admin', function () {
     return view('admin/index');
 })->name("showAdminLogin");
-
 
 Route::get('/admin/admin_info', [UserController::class, 'show'])->name("showAdminInfo")->middleware('auth');
 Route::post('/admin/index', [UserController::class, 'login'])->name("loginUser");
