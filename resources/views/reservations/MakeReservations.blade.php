@@ -4,15 +4,57 @@
     Make new reservation
 @endsection
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const calendarEl = document.getElementById('calendar-container');
+        const timePickedDiv = document.getElementById('time-picked');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            height: 700, // Set the desired height here
+            aspectRatio: 2, // Set the aspect ratio (width/height) here
+            initialView: 'timeGridWeek',
+            slotMinTime: '8:00:00',
+            slotMaxTime: '19:00:00',
+            events: <?php echo json_encode($events); ?>,
+            dateClick: function(info) {
+                // Get the start and end times from the clicked date
+                var startTime = info.date;
+                var endTime = new Date(startTime.getTime());
+                endTime.setHours(endTime.getHours() + 2);
+                calendar.select(startTime, endTime);
+                timePickedDiv.innerText = startTime;
+            },
+            eventMouseEnter: function(mouseEnterInfo) {
+                // Handle mouse enter event for calendar events
+                // Add hover effect or other logic
+                console.log('Mouse enter on event: ', mouseEnterInfo.event);
+            },
+
+            // Add more options or callbacks as needed
+            // ...
+        });
+
+        calendar.render();
+    });
+</script>
+
+
 @section('content')
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Reservation Form</h2>
         </div>
 
+
+        <div id="calendar-container" class="w-1/2 h-full"></div>
+
+        <div id="time-picked"></div>
+
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form class="space-y-6" action="{{ route('reservation-store') }}" method="POST">
                 @csrf
+
+                <div id="calendar-container" class="w-1/2 h-full"></div>
+
                 <div>
                     <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First Name</label>
                     <div class="mt-2">
@@ -53,7 +95,7 @@
                 </div>
             </form>
 
-            @if(isset($date))
+            @if (isset($date))
                 <h1 class="text-center text-2xl mt-6 font-bold leading-9 tracking-tight text-gray-900">
                     Reservation for {{ $date }}
                 </h1>

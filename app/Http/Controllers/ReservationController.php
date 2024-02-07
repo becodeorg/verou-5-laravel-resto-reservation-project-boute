@@ -53,9 +53,21 @@ class ReservationController extends Controller
 
     public function showForm(Request $request)
     {
-        $date = $request->query('date');
+        //    $date = $request->query('date');
         // Additional logic if needed
+        $specificDates = [];
 
-        return view('reservations.MakeReservations', ['date' => $date]);
+        $events = [];
+
+        foreach ($specificDates as $date) {
+            // Add an event for each day
+            $events[] = [
+                'title' => 'Event on ' . $date,
+                'start' => $date . 'T08:00:00',
+                'end' => $date . 'T17:00:00',
+            ];
+        }
+        //    return view('reservations.MakeReservations', ['date' => $date]);
+        return view('reservations.MakeReservations', ['events' => $events]);
     }
 }
