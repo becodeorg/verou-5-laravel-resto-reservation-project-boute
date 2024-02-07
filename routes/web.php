@@ -27,6 +27,9 @@ Route::get('/menu', [MenuController::class, 'index'])->name("showMenu");
 
 Route::get('/all_reservations', [ReservationController::class, 'index'])->name("showAllReservations");
 Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservationDestroy');
+Route::get('/reservations/{id}/edit', [ReservationController::class, 'edit'])->name('editReservations');
+Route::put('/reservations/{id}', [ReservationController::class, 'update'])->name('updateReservations');
+
 Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
 
 Route::get('/reservations/MakeReservations', [ReservationController::class, 'showForm']);

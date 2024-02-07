@@ -55,15 +55,17 @@ Reservations
                     <p><strong>Number of guests:</strong> {{ $reservation->number_of_guests }}</p>
                     <p><strong>Date of Reservation:</strong> {{ $reservation->time }}</p>
                     <br>
+                    <form action="{{ route('editReservations', $reservation->id) }}" method="GET" style="display: inline;">
+                        @csrf
                     <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Edit</button>
+                    </form>
                     <br>
                     <form action="{{ route('reservationDestroy', $reservation->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
                     <button type="submit" class="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Delete</button>
-                    </form>
-
-                </div>
+                </form>
+            </div>
             </div>
             @endforeach
         
