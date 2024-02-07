@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Controllers\HomeController::class)->name('home'); 
+Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
 
 Route::get('/home', function () {
     return view('home');
@@ -26,12 +26,7 @@ Route::get('/all_reservations', [ReservationController::class, 'index'])->name("
 Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservationDestroy');
 Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
 
-Route::get('/reservations/MakeReservations', [ReservationController::class, 'showForm']);
-
-
-Route::get('reservations/MakeReservations', function () {
-    return view('reservations.MakeReservations');
-    })->name('MakeReservations');
+Route::get('/reservations/MakeReservations', [ReservationController::class, 'showForm'])->name('MakeReservations');
 
 Route::get('/Menu', function () {
     return view('Menu');
