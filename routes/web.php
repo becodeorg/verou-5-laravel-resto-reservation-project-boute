@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,15 +23,14 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::get('/menu', [MenuController::class, 'index'])->name("showMenu");
+
 Route::get('/all_reservations', [ReservationController::class, 'index'])->name("showAllReservations");
 Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservationDestroy');
 Route::post('/Reservations/MakeReservation', [ReservationController::class, 'store'])->name('reservation-store');
 
 Route::get('/reservations/MakeReservations', [ReservationController::class, 'showForm'])->name('MakeReservations');
 
-Route::get('/Menu', function () {
-    return view('Menu');
-})->name("Menu");
 
 Route::get('/Admin', function () {
     return view('admin/index');
