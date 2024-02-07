@@ -31,7 +31,10 @@ class ReservationController extends Controller
                 'last_name' => $request->last_name,
                 'email' => $request->email,
                 'number_of_guests' => $request->number_of_guests,
+                'time' => $request->time
             ]);
+
+
 
             return redirect('/')->with('success', 'Reservation created successfully');
         } catch (\Exception $e) {

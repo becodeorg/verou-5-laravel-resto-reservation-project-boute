@@ -31,11 +31,9 @@ Route::post('/Reservations/MakeReservation', [ReservationController::class, 'sto
 
 Route::get('/reservations/MakeReservations', [ReservationController::class, 'showForm'])->name('MakeReservations');
 
-
 Route::get('/Admin', function () {
     return view('admin/index');
 })->name("showAdminLogin");
-
 
 Route::get('/admin/admin_info', [UserController::class, 'show'])->name("showAdminInfo")->middleware('auth');
 Route::post('/admin/index', [UserController::class, 'login'])->name("loginUser");
