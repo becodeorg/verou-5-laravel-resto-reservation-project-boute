@@ -73,9 +73,9 @@
         </div>
     </section>
     <section class="w-full flex flex-row justify-even items-center h-1/2">
-        <div class="w-1/2 h-full flex flex-col justify-center items-center">
-            <h1 id="table-text" class="mt-10 text-5xl justify-start font-bold">See for available tables</h1>
-            <p id="table-paragraph" class="mt-10 text-2xl text-indigo-600 font-bold">Click on a date and hour!</p>
+        <div class="w-1/2 h-full flex flex-col justify-center items-start">
+            <h1 id="table-text" class="mt-10 text-5xl ml-16 font-bold">See for available tables</h1>
+            <p id="table-paragraph" class="mt-5 ml-16 text-2xl text-indigo-600 font-bold">Click on a date and hour!</p>
         </div>
         <div id="calendar-container" class="w-1/2 h-full"></div>
     </section>
