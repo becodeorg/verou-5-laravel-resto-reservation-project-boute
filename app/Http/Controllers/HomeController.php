@@ -13,10 +13,6 @@ class HomeController extends Controller
     public function __invoke(Request $request)
     {
         $specificDates = [
-            '2024-02-06',
-            '2024-02-07',
-      
-     
         ];
 
         $events = [];

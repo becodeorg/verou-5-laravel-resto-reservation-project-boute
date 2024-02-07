@@ -5,7 +5,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const calendarEl = document.getElementById('calendar-container');
             const calendar = new FullCalendar.Calendar(calendarEl, {
-                height: 400, // Set the desired height here
+                height: 500, // Set the desired height here
                 aspectRatio: 1.5, // Set the aspect ratio (width/height) here
                 initialView: 'timeGridWeek',
                 slotMinTime: '8:00:00',
