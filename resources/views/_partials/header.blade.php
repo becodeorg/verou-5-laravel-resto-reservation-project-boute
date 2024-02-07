@@ -5,10 +5,10 @@
                 @guest
                 <li><a href="{{ route("MakeReservations") }}">Make Reservation</a></li>
                 @endguest
-                <li><a href="{{ route("Menu") }}">Menu</a></li>
                 @auth
                 <li><a href="{{ route("showAllReservations") }}">Reservations</a></li>
                 @endauth
+                <li><a href="{{ route("showMenu") }}">Menu</a></li>
                 <hr>
                 <hr>
                 @guest
