@@ -15,7 +15,7 @@ class HomeController extends Controller
         $specificDates = [
             '2024-02-06',
             '2024-02-07',
-            '2024-02-08',
+      
      
         ];
 
@@ -30,15 +30,6 @@ class HomeController extends Controller
             ];
         }
 
-        $appointments = Appointment::with(['client', 'employee'])->get();
-
-        foreach ($appointments as $appointment) {
-            $events[] = [
-                'title' => $appointment->client->name . ' ('.$appointment->employee->name.')',
-                'start' => $appointment->start_time,
-                'end' => $appointment->finish_time,
-            ];
-        }
 
         return view('welcome', compact('events'));
     }
