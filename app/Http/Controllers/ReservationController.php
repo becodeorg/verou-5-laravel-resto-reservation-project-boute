@@ -70,4 +70,32 @@ class ReservationController extends Controller
         //    return view('reservations.MakeReservations', ['date' => $date]);
         return view('reservations.MakeReservations', ['events' => $events]);
     }
+    public function edit($id)
+{
+    $reservation = Reservation::find($id);
+    return view('reservations.editReservations', compact('reservation'));
+}
+public function update(Request $request, $id)
+{
+    // Validate the form data
+    $request->validate([
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'time' => 'required|date',
+        'number_of_guests' => 'required|integer|min:1',
+    ]);
+
+    // Find the reservation by ID
+    $reservation = Reservation::findOrFail($id);
+
+    // Update the reservation with the form data
+    $reservation->update([
+        'first_name' => $request->input('first_name'),
+        'last_name' => $request->input('last_name'),
+        'email' => $request->input('email'),
+        'time' => $request->input('time'),
+        'number_of_guests' => $request->input('number_of_guests'),
+    ]);
+}
 }
