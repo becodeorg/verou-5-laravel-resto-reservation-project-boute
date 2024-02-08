@@ -14,6 +14,13 @@ class Reservation extends Model
         'first_name',
         'last_name',
         'email',
-        'number_of_guests'
+        'number_of_guests',
+        'time',
+        'table_id'
     ];
+
+    public function table()
+    {
+        return $this->belongsTo(Table::class);
+    }
 }

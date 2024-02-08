@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\Table;
+use Carbon\Carbon;
+use Error;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -26,21 +29,38 @@ class ReservationController extends Controller
                 'number_of_guests' => ['required', 'numeric', 'between:1,8']
             ]);
 
+            $time = Carbon::parse($request->start_time);
+            $table = $this->findTable($time);
+            if ($table == null) throw new Error("No table found");
+
             Reservation::create([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'email' => $request->email,
                 'number_of_guests' => $request->number_of_guests,
-                'time' => $request->time
+                'time' => Carbon::parse($request->start_time),
+                'table_id' => $table->id
             ]);
-
-
 
             return redirect('/')->with('success', 'Reservation created successfully');
         } catch (\Exception $e) {
             // Log the error or handle it in some way
+            dd($e->getMessage());
             return redirect('/')->with('error', 'Error creating reservation. Please try again.');
         }
+    }
+
+    private function findTable($time)
+    {
+        foreach (Table::all() as $table) {
+            $reservations = $table->reservations->where('time', $time);
+
+            if ($reservations->isEmpty()) {
+                return $table;
+            }
+        }
+
+        return null;
     }
 
     public function destroy($id)
@@ -71,31 +91,31 @@ class ReservationController extends Controller
         return view('reservations.MakeReservations', ['events' => $events]);
     }
     public function edit($id)
-{
-    $reservation = Reservation::find($id);
-    return view('reservations.editReservations', compact('reservation'));
-}
-public function update(Request $request, $id)
-{
-    // Validate the form data
-    $request->validate([
-        'first_name' => 'required|string|max:255',
-        'last_name' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
-        'time' => 'required|date',
-        'number_of_guests' => 'required|integer|min:1',
-    ]);
+    {
+        $reservation = Reservation::find($id);
+        return view('reservations.editReservations', compact('reservation'));
+    }
+    public function update(Request $request, $id)
+    {
+        // Validate the form data
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'time' => 'required|date',
+            'number_of_guests' => 'required|integer|min:1',
+        ]);
 
-    // Find the reservation by ID
-    $reservation = Reservation::findOrFail($id);
+        // Find the reservation by ID
+        $reservation = Reservation::findOrFail($id);
 
-    // Update the reservation with the form data
-    $reservation->update([
-        'first_name' => $request->input('first_name'),
-        'last_name' => $request->input('last_name'),
-        'email' => $request->input('email'),
-        'time' => $request->input('time'),
-        'number_of_guests' => $request->input('number_of_guests'),
-    ]);
-}
+        // Update the reservation with the form data
+        $reservation->update([
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+            'time' => $request->input('time'),
+            'number_of_guests' => $request->input('number_of_guests'),
+        ]);
+    }
 }

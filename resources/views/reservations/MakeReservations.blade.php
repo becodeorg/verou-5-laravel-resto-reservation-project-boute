@@ -22,6 +22,7 @@
                 endTime.setHours(endTime.getHours() + 2);
                 calendar.select(startTime, endTime);
                 timePickedDiv.innerText = startTime;
+                document.getElementById('start_time').value = startTime.toISOString();
             },
             eventMouseEnter: function(mouseEnterInfo) {
                 // Handle mouse enter event for calendar events
@@ -52,9 +53,7 @@
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form class="space-y-6" action="{{ route('reservation-store') }}" method="POST">
                 @csrf
-
-                <div id="calendar-container" class="w-1/2 h-full"></div>
-
+                <input type="hidden" id="start_time" name="start_time">
                 <div>
                     <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First Name</label>
                     <div class="mt-2">

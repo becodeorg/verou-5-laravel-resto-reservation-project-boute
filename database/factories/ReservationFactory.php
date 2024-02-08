@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Table;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,7 +22,8 @@ class ReservationFactory extends Factory
             'last_name' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'time' => fake()->dateTimeInInterval(now(), '+6 months', null),
-            'number_of_guests' => fake()->numberBetween(1, 8)
+            'number_of_guests' => fake()->numberBetween(1, 8),
+            'table_id' => Table::all()->random()
         ];
     }
 }

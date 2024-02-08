@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->dateTime('time');
             $table->integer('number_of_guests');
-            //    $table->rememberToken();
+            $table->foreignId('table_id')->constrained('tables');
             $table->timestamps();
         });
     }
