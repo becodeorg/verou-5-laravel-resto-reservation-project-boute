@@ -57,7 +57,9 @@ class ReservationController extends Controller
 
             $reservation = $table->reservations
                 ->first(function ($reservation) use ($time) {
-                    return $reservation->time == $time;
+                    $reservationTime = Carbon::parse($reservation->time);
+                    $endTime = Carbon::parse($time)->addHours(2);
+                    return $reservationTime >= $time && $reservationTime < $endTime;
                 });
 
             if (!$reservation) {
