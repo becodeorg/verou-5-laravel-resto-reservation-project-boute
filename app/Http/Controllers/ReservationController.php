@@ -30,7 +30,7 @@ class ReservationController extends Controller
             ]);
 
             $time = Carbon::parse($request->start_time);
-            $table = $this->findTable($time);
+            $table = $this->findTable($time, $request->number_of_guests);
             if ($table == null) throw new Error("No table found");
 
             Reservation::create([
@@ -50,12 +50,17 @@ class ReservationController extends Controller
         }
     }
 
-    private function findTable($time)
+    private function findTable($time, $guests)
     {
         foreach (Table::all() as $table) {
-            $reservations = $table->reservations->where('time', $time);
+            if ($table->seats < $guests) continue;
 
-            if ($reservations->isEmpty()) {
+            $reservation = $table->reservations
+                ->first(function ($reservation) use ($time) {
+                    return $reservation->time == $time;
+                });
+
+            if (!$reservation) {
                 return $table;
             }
         }
