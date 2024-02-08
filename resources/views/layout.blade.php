@@ -12,7 +12,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="flex flex-col items-center justify-between min-h-screen">
+<body class="flex flex-col items-center justify-between min-h-screen bg-slate-950">
 
     <!-- Header -->
     @include('_partials.header')
