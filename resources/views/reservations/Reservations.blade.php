@@ -72,7 +72,4 @@ Reservations
     </body>
     </html>
     
-
-   
-
 @endsection
