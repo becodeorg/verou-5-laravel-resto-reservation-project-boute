@@ -94,7 +94,19 @@ class ReservationController extends Controller
                 'end' => $date . 'T17:00:00',
             ];
         }
-        //    return view('reservations.MakeReservations', ['date' => $date]);
+
+        // display previous reservations
+        // foreach (Reservation::all() as $reservation) {
+        //     $events[] = [
+        //         'title' => $reservation->id . " " . $reservation->last_name,
+        //         'start' => Carbon::parse($reservation->time),
+        //         'end' => Carbon::parse(
+        //             $reservation->time
+        //         )->addHours(2)
+        //     ];
+        // }
+        // return view('reservations.MakeReservations', ['date' => $date]);
+
         return view('reservations.MakeReservations', ['events' => $events]);
     }
     public function edit($id)

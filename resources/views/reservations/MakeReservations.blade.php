@@ -4,7 +4,7 @@
     Make new reservation
 @endsection
 
-<script>
+<script defer>
     document.addEventListener('DOMContentLoaded', () => {
         const calendarEl = document.getElementById('calendar-container');
         const timePickedDiv = document.getElementById('time-picked');
@@ -41,12 +41,11 @@
 
 @section('content')
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div class="sm:mx-auto sm:w-full sm:max-w-lg"> <!-- Adjust the maximum width here -->
             <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Reservation Form</h2>
         </div>
 
-
-        <div id="calendar-container" class="w-1/2 text-white h-full"></div>
+        <div id="calendar-container" class="w-full md:w-full mx-auto mt-6"></div> <!-- Adjust the width here -->
 
         <div id="time-picked"></div>
 
