@@ -6,10 +6,10 @@ Sign in
 
 @section('content')
 
-<div class="admin_info">
-    <strong>ID:</strong> {{ Auth::user()->id }}</a>
-    <p><strong>Name:</strong> {{ Auth::user()->name }}</p>
-    <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
+<div class="admin_info text-white">
+    <strong class="text-white">ID:</strong> {{ Auth::user()->id }}</a>
+    <p class="text-white"><strong class="text-white">Name:</strong> {{ Auth::user()->name }}</p>
+    <p class="text-white"><strong>Email:</strong> {{ Auth::user()->email }}</p>
     <br>
     <br>
 </div>

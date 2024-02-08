@@ -1,6 +1,6 @@
     <header>
-        <nav class="w-screen justify-center align-middle p-10 border-b-4 border-indigo-600">
-            <ul class="w-screen flex flex-row text-2xl justify-evenly">
+        <nav class="w-screen justify-center align-middle p-10 border-b-4 border-orange-600">
+            <ul class="w-screen flex flex-row text-white text-2xl justify-evenly">
                 <li><a href="{{ route("home") }}">Home</a></li>
                 @guest
                 <li><a href="{{ route("MakeReservations") }}">Make Reservation</a></li>
