@@ -9,8 +9,8 @@
         const calendarEl = document.getElementById('calendar-container');
         const timePickedDiv = document.getElementById('time-picked');
         const calendar = new FullCalendar.Calendar(calendarEl, {
-            height: 700, // Set the desired height here
-            aspectRatio: 2, // Set the aspect ratio (width/height) here
+            height: 500, // Set the desired height here
+            aspectRatio: 3, // Set the aspect ratio (width/height) here
             initialView: 'timeGridWeek',
             slotMinTime: '8:00:00',
             slotMaxTime: '19:00:00',
@@ -38,18 +38,34 @@
     });
 </script>
 
+<!-- <style>
+
+    #form-calender {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    }
+</style> -->
 
 @section('content')
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-lg"> <!-- Adjust the maximum width here -->
-            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Reservation Form</h2>
-        </div>
 
-        <div id="calendar-container" class="w-full md:w-full mx-auto mt-6"></div> <!-- Adjust the width here -->
+        <section>
+            <div class="sm:mx-auto sm:w-full sm:max-w-lg"> <!-- Adjust the maximum width here -->
+                <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">Reservation Form</h2>
+            </div>
+        </section>
 
-        <div id="time-picked"></div>
+        
 
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <section id="form-calender" class="flex-row w-screen  rounded-xl px-5 py-5 ">
+
+        <section>
+                        <div id="calendar-container" class="w-full md:w-full text-white p-5 mx-auto mt-6"></div> <!-- Adjust the width here -->
+                        <div id="time-picked" class="text-white"></>
+                    </section>
+        <div>
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form class="space-y-6" action="{{ route('reservation-store') }}" method="POST">
                 @csrf
                 <input type="hidden" id="start_time" name="start_time">
@@ -91,13 +107,16 @@
                         class="flex w-full justify-center rounded-md bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Submit
                         Reservation</button>
                 </div>
-            </form>
+                </form>
 
-            @if (isset($date))
-                <h1 class="text-center text-2xl mt-6 font-bold leading-9 tracking-tight text-gray-900">
-                    Reservation for {{ $date }}
-                </h1>
-            @endif
+
+                @if (isset($date))
+                    <h1 class="text-center text-2xl mt-6 font-bold leading-9 tracking-tight text-gray-900">
+                        Reservation for {{ $date }}
+                    </h1>
+                @endif
+            </div>
         </div>
+        </section>
     </div>
 @endsection
