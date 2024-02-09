@@ -4,4 +4,5 @@
 
 #calendar-container * {
     color: whitesmoke;
+    cursor: pointer;
 }

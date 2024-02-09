@@ -28,6 +28,7 @@
             eventMouseEnter: function(mouseEnterInfo) {
                 // Handle mouse enter event for calendar events
                 // Add hover effect or other logic
+                
                 console.log('Mouse enter on event: ', mouseEnterInfo.event);
             },
 
