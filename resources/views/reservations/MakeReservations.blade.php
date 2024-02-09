@@ -10,7 +10,7 @@
         const timePickedDiv = document.getElementById('time-picked');
         const calendar = new FullCalendar.Calendar(calendarEl, {
             height: 500, // Set the desired height here
-            aspectRatio: 3, // Set the aspect ratio (width/height) here
+            aspectRatio: 1, // Set the aspect ratio (width/height) here
             initialView: 'timeGridWeek',
             slotMinTime: '8:00:00',
             slotMaxTime: '19:00:00',
@@ -38,14 +38,14 @@
     });
 </script>
 
-<!-- <style>
+<style>
 
     #form-calender {
     width: 100vw;
     display: flex;
     flex-direction: row;
     }
-</style> -->
+</style>
 
 @section('content')
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -58,17 +58,16 @@
 
         
 
-        <section id="form-calender" class="flex-row w-screen  rounded-xl px-5 py-5 ">
-
-        <section>
-                        <div id="calendar-container" class="w-full md:w-full text-white p-5 mx-auto mt-6"></div> <!-- Adjust the width here -->
-                        <div id="time-picked" class="text-white"></>
-                    </section>
-        <div>
-            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form class="space-y-6" action="{{ route('reservation-store') }}" method="POST">
-                @csrf
-                <input type="hidden" id="start_time" name="start_time">
+        <section id="form-calender" class="flex-row w-screen justify-center rounded-xl px-5 py-5 ">
+                <section>
+                    <div id="calendar-container" class="w-full md:w-full text-white p-5  mx-auto mt-6"></div> <!-- Adjust the width here -->
+                    <div id="time-picked" class="text-white"></>
+                </section>
+                <div>
+                    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+                    <form class="space-y-10 w-96" action="{{ route('reservation-store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" id="start_time" name="start_time">
                 <div>
                     <label for="first_name" class="block text-sm font-medium leading-6 text-orange-900">First Name</label>
                     <div class="mt-2">
