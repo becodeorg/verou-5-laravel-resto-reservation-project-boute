@@ -2,7 +2,7 @@
     <nav class="w-screen justify-center align-middle p-10 border-b-4 border-orange-600">
         <ul class="w-screen flex flex-row text-white text-2xl justify-evenly items-center">
             <li class="{{ request()->routeIs('home') ? 'border-b-4 border-orange-600 py-3' : '' }}">
-                <a href="{{ route("home") }}">Home</a>
+                <a href="{{ route("home") }}"><img src="{{ asset('/assets/Logo Sushi.png') }}" alt="Sushi-logo"></a>
             </li>
             @guest
                 <li class="{{ request()->routeIs('MakeReservations') ? 'border-b-4 border-orange-600 py-3' : '' }}">

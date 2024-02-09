@@ -40,7 +40,5 @@ Dashboard
             </ul>
         </div>
     </div>
-    
     </body>
-
 @endsection
