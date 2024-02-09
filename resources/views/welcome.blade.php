@@ -71,7 +71,7 @@
                 <h1 class="mt-10 text-8xl ml-16 text-white font-bold">Come for the best Sushi in town!</h1>
             </div>
             <div class="w-1/2 h-full">
-            <img src="{{ asset('pictures/Sushi_stick.png') }}" alt="Sushi with chopstick">
+            <img src="{{ asset('/assets/Sushi_stick.png') }}" alt="Sushi with chopstick">
 
             </div>
         </section>
