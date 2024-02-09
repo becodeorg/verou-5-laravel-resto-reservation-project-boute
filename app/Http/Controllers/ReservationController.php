@@ -21,6 +21,7 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
+        $message = "";
         try {
             $this->validate($request, [
                 'first_name' => ['required', 'max:255'],
@@ -31,7 +32,7 @@ class ReservationController extends Controller
 
             $time = Carbon::parse($request->start_time);
             $table = $this->findTable($time, $request->number_of_guests);
-            if ($table == null) throw new Error("No table found");
+            if ($table == null) $message = "No table found";
 
             Reservation::create([
                 'first_name' => $request->first_name,
@@ -42,11 +43,10 @@ class ReservationController extends Controller
                 'table_id' => $table->id
             ]);
 
-            return redirect('/')->with('success', 'Reservation created successfully');
+            return redirect('/')->with('success', 'Reservation created successfully')->with('successTime', $time)->with('successTable', $table->id);
         } catch (\Exception $e) {
             // Log the error or handle it in some way
-            dd($e->getMessage());
-            return redirect('/')->with('error', 'Error creating reservation. Please try again.');
+            return redirect('/')->with('error', $message == "" ? 'Error creating reservation. Please try again.' : $message);
         }
     }
 
@@ -95,7 +95,6 @@ class ReservationController extends Controller
             ];
         }
 
-        // display previous reservations
         // foreach (Reservation::all() as $reservation) {
         //     $events[] = [
         //         'title' => $reservation->id . " " . $reservation->last_name,
@@ -105,7 +104,7 @@ class ReservationController extends Controller
         //         )->addHours(2)
         //     ];
         // }
-        // return view('reservations.MakeReservations', ['date' => $date]);
+        //    return view('reservations.MakeReservations', ['date' => $date]);
 
         return view('reservations.MakeReservations', ['events' => $events]);
     }

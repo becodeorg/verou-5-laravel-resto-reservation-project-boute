@@ -16,7 +16,7 @@
 
                     // Display a confirmation window
                     const isConfirmed = confirm(
-                    `Do you want to make a reservation on ${selectedDate}?`);
+                        `Do you want to make a reservation on ${selectedDate}?`);
 
                     if (isConfirmed) {
                         console.log('Reservation confirmed for: ' + selectedDate);
@@ -60,18 +60,25 @@
         }
 
         /* #calendar-container {
-        height: 1600px;
-        width: 600px;
-    } */
+                        height: 1600px;
+                        width: 600px;
+                    } */
     </style>
 
     <main class="w-screen flex flex-col justify-even items-center h-screen">
+        @if (session('success'))
+            <div id="success-div">
+                <p>{{ session('success') }}</p>
+                <p>Time: {{ session('successTime') }}</p>
+                <p>Table: {{ session('successTable') }}</p>
+            </div>
+        @endif
         <section class="w-full flex flex-row justify-even items-center h-1/2">
             <div class="w-1/2 h-full flex flex-col justify-center items-center">
                 <h1 class="mt-10 text-8xl ml-16 text-white font-bold">Come for the best Sushi in town!</h1>
             </div>
             <div class="w-1/2 h-full">
-            <img src="{{ asset('/assets/Sushi_stick.png') }}" alt="Sushi with chopstick">
+                <img src="{{ asset('/assets/Sushi_stick.png') }}" alt="Sushi with chopstick">
 
             </div>
         </section>
