@@ -58,14 +58,14 @@
 
         
 
-        <section id="form-calender" class="flex-row w-screen justify-center rounded-xl px-5 py-5 ">
-                <section>
-                    <div id="calendar-container" class="w-full md:w-full text-white p-5  mx-auto mt-6"></div> <!-- Adjust the width here -->
+        <section id="form-calender" class="flex-row-reverse w-screen justify-center rounded-xl px-5 py-5 ">
+                <section class="mr-12">
+                    <div id="calendar-container" class="w-full md:w-full text-white p-5   mx-auto mt-6"></div> <!-- Adjust the width here -->
                     <div id="time-picked" class="text-white"></>
                 </section>
                 <div>
                     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form class="space-y-10 w-96" action="{{ route('reservation-store') }}" method="POST">
+                    <form class="space-y-10 w-96 ml-12" action="{{ route('reservation-store') }}" method="POST">
                     @csrf
                     <input type="hidden" id="start_time" name="start_time">
                 <div>
