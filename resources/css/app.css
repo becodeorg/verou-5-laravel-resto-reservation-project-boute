@@ -2,4 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
+#calendar-container * {
+    color: whitesmoke;
+}
